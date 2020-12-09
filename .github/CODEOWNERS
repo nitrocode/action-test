@@ -7,4 +7,4 @@
 # Cloud Posse must review any changes to standard context definition,
 # but some changes can be rubber-stamped.
 CO-test-1.txt       @cloudposse/engineering
-CO-test-2.txt       @cloudposse/engineering @cloudposse/contributors @cloudposse/approvers
+CO-test-2.txt       @cloudposse/engineering @cloudposse/approvers
