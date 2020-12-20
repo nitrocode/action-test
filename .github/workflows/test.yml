@@ -1,0 +1,76 @@
+name: test
+on:
+  workflow_dispatch:
+    types: [test-command]
+  #pull_request:
+
+jobs:
+  #  matrix:
+  #    runs-on: ubuntu-latest
+  #    strategy:
+  #      matrix:
+  #        package-type: [ 'deb','rpm', 'apk' ]
+  #        arch: ['arm', 'amd64']
+  #        exclude:
+  #        - package-type: 'apk'
+  #        include:
+  #        - package-type: deb
+  #          builder-version: stable-slim
+  #        - package-type: rpm
+  #          builder-version: centos8
+  #    steps:
+  #    - name: Output
+  #      id: info
+  #      shell: bash
+  #      env:
+  #        TEST: ${{ false || matrix.arch == 'amd64' }}
+  #      run: |
+  #        echo "cloudposse/packages-${{matrix.package-type}}build:${{matrix.builder-version}}-${{matrix.arch}}"
+  #        echo "TEST is $TEST"
+  test-gen:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix:  ${{steps.info.outputs.matrix}}
+    steps:
+    - name: Output
+      id: info
+      shell: bash
+      run: |
+        printf "::set-output name=%s::%s\n" "deb.bool" true
+        printf "::set-output name=%s::%s\n" "rpm.bool" true
+        printf "::set-output name=%s::%s\n" "mat"  "[\"deb\",\"rpm\"]"
+        printf "::set-output name=%s::%s\n" "mat"  "[\"apk\"]"
+        printf "::set-output name=%s::%s\n" "matrix"  "[\"apk\"]"
+
+
+  test-mat:
+    runs-on: ubuntu-latest
+    #    if: >
+    #      needs.test-gen.outputs.matrix != '[]'
+    #      && needs.test-gen.outputs.matrix != '["apk"]'
+    needs: test-gen
+    strategy:
+      matrix:
+        package-type: ${{fromJSON(needs.test-gen.outputs.matrix)}}
+        exclude:
+        - package-type: 'apk'
+
+    steps:
+    - name: Parse
+      shell: bash
+      env:
+        TYPE: ${{matrix.package-type}}
+        BV: ${{matrix.builder-version}}
+        NULL: ${{ github.event.client_payload.github.payload.comment.id }}
+      run: |
+        echo TYPE is "$TYPE"
+        echo BV is "$BV"
+        printf "Null is '%s'\n" "$NULL"
+    - uses: actions/checkout@v2
+    - name: Echo
+      uses: ./echo
+      env:
+        TYPE: ${{matrix.package-type}}
+        BV: ${{matrix.builder-version}}
+      with:
+        input: ${{needs.test-gen.outputs.matrix}}
