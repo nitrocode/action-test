@@ -61,12 +61,12 @@ jobs:
       env:
         TYPE: ${{matrix.package-type}}
         BV: ${{matrix.builder-version}}
-        # NULL: ${{ github.event.client_payload.github.payload.comment.id }}
+        CID: ${{ github.event.client_payload.github.payload.comment.id }}
         JSON: ${{ toJSON(github.event.client_payload) }}
       run: |
         echo TYPE is "$TYPE"
         echo BV is "$BV"
-        printf "Null is '%s'\n" "$NULL"
+        printf "CID is '%s'\n" "$CID"
         printf "JSON is: \n%s\n\n" "$JSON"
     - uses: actions/checkout@v2
     - name: Echo
