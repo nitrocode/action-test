@@ -1,6 +1,6 @@
 name: test
 on:
-  workflow_dispatch:
+  repository_dispatch:
     types: [test-command]
   #pull_request:
 
