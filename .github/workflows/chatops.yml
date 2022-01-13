@@ -1,0 +1,14 @@
+name: chatops
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  default-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Handle common commands and run tests"
+        uses: cloudposse/github-action-terraform-ci@b80d5a3f5f73e7494da668221ac9638d4ac0990d
+        with:
+          token: ${{ secrets.PUBLIC_REPO_ACCESS_TOKEN }}
+          reaction-token: ${{ secrets.GITHUB_TOKEN }}
