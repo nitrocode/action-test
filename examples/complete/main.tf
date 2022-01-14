@@ -4,7 +4,8 @@ provider "aws" {
 
 module "kms_key" {
   source  = "cloudposse/kms-key/aws"
-  version = "0.7.0"
+  version = "0.12.1"
+  #version = "0.7.0"
 
   description             = "Test KMS key"
   deletion_window_in_days = 7
@@ -15,7 +16,8 @@ module "kms_key" {
 
 module "bucket" {
   source  = "cloudposse/s3-bucket/aws"
-  version = "0.22.0"
+  version = "0.45.0"
+  #version = "0.22.0"
 
   user_enabled                 = false
   versioning_enabled           = false
