@@ -8,7 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Handle common commands and run tests"
-        uses: cloudposse/github-action-terraform-ci@f2a4143efb6c396ef29539daae19eceeabcfec32
+        uses: cloudposse/github-action-terraform-ci@4655c5eb4315ce7e1ad06740f5d63bf5b187a77e
         with:
           token: ${{ secrets.PUBLIC_REPO_ACCESS_TOKEN }}
           reaction-token: ${{ secrets.GITHUB_TOKEN }}
+          test-name: "tests-bats"
+          sha: ${{ github.event.pull_request.head.sha || github.sha }}
