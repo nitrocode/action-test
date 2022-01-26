@@ -9,6 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Handle common commands and run tests"
-        uses: cloudposse/github-action-terraform-ci@13676e8a1118c59272480ccce0a9c6bfbe1e78ba
+        uses: cloudposse/github-action-terraform-ci@ced51498b586f5549b0d44a5147cbc46008c871c
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
