@@ -10,5 +10,6 @@ jobs:
     steps:
       - name: "Handle common commands and run tests"
         uses: cloudposse/github-action-terraform-ci@main
+        if: always()
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
