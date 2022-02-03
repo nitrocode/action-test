@@ -18,3 +18,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           OPSGENIE_API_KEY: ${{ secrets.OPSGENIE_API_KEY }}
+          SPOTINST_ACCOUNT: ${{ secrets.SPOTINST_ACCOUNT }}
