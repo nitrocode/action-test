@@ -1,4 +1,4 @@
-name: chatops
+name: ci-tests
 on:
   issue_comment:
     types: [created]
@@ -7,7 +7,7 @@ on:
     types: [opened, synchronized, reopened]
 
 jobs:
-  tests-bats:
+  tests:
     # only run on pull requests so long as they don't come from forks
     if: ( (github.event_name == 'pull_request') && (github.event.pull_request.head.repo.full_name == github.repository) ) || (github.event_name != 'pull_request')
     runs-on: ubuntu-latest
@@ -17,3 +17,4 @@ jobs:
         if: always()
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          OPSGENIE_API_KEY: ${{ secrets.OPSGENIE_API_KEY }}
