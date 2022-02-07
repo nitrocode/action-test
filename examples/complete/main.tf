@@ -64,20 +64,20 @@ data "aws_iam_policy_document" "base" {
   }
 }
 
-#module "role" {
-#  source = "../.."
-#
-#  principals   = var.principals
-#  use_fullname = var.use_fullname
-#
-#  policy_documents = [
-#    data.aws_iam_policy_document.resource_full_access.json,
-#    data.aws_iam_policy_document.base.json
-#  ]
-#
-#  policy_document_count = 2
-#  policy_description    = "Test IAM policy"
-#  role_description      = "Test IAM role"
-#
-#  context = module.this.context
-#}
+module "role" {
+  source = "../.."
+
+  principals   = var.principals
+  use_fullname = var.use_fullname
+
+  policy_documents = [
+    data.aws_iam_policy_document.resource_full_access.json,
+    data.aws_iam_policy_document.base.json
+  ]
+
+  policy_document_count = 2
+  policy_description    = "Test IAM policy"
+  role_description      = "Test IAM role"
+
+  context = module.this.context
+}
