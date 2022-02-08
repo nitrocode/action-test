@@ -1,4 +1,4 @@
 output "name" {
-  value       = "action-test"
+  value       = "eg-test-iam-role-test-93835"
   description = "The name of the created role"
 }
