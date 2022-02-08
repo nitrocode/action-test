@@ -1,7 +1,7 @@
-output "role_name" {
-  value       = module.role.name
-  description = "The name of the created role"
-}
+#output "role_name" {
+#  value       = module.role.name
+#  description = "The name of the created role"
+#}
 
 #output "role_id" {
 #  value       = module.role.id
