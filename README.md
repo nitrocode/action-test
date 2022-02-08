@@ -166,9 +166,7 @@ No inputs.
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| <a name="output_name"></a> [name](#output\_name) | The name of the created role |
+No outputs.
 <!-- markdownlint-restore -->
 
 
