@@ -2,7 +2,7 @@ name: "auto-context"
 on:
   schedule:
   # Update context.tf nightly
-  - cron:  '0 3 * * *'
+  - cron:  '30 6 * * *'
   workflow_dispatch:
 
 jobs:
