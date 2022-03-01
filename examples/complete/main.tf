@@ -16,7 +16,7 @@ module "kms_key" {
 
 module "bucket" {
   source  = "cloudposse/s3-bucket/aws"
-  version = "0.45.0"
+  version = "0.49.0"
   #version = "0.22.0"
 
   user_enabled                 = false
