@@ -1,0 +1,21 @@
+name: "auto-readme"
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+  workflow_dispatch:
+
+jobs:
+  format:
+    #if: (github.event.pull_request.head.repo.full_name == github.repository) && (github.event.pull_request.state == 'open')
+    runs-on: ubuntu-latest
+    steps:
+    - uses: cloudposse/github-action-terraform-auto-readme@main
+      #with:
+      #  token: ${{ secrets.GITHUB_TOKEN }}
+
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+    - name: test
+      shell: bash
+      run: echo "pong"
