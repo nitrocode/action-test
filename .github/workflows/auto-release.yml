@@ -1,0 +1,23 @@
+name: "auto-release"
+on:
+  push:
+    branches:
+      - main
+      - master
+      - production
+  workflow_dispatch:
+
+jobs:
+  auto-release:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: cloudposse/github-action-terraform-auto-release@main
+      with:
+        special-token: ${{ secrets.PUBLIC_REPO_ACCESS_TOKEN }}
+
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+    - name: test
+      shell: bash
+      run: echo "pong"
