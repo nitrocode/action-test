@@ -1,4 +1,4 @@
-name: ci-tests
+name: "terraform-ci"
 on:
   issue_comment:
     types: [created]
@@ -7,12 +7,12 @@ on:
     types: [opened, synchronized, reopened]
 
 jobs:
-  tests:
+  terraform-ci:
     # only run on pull requests so long as they don't come from forks
     if: ( (github.event_name == 'pull_request') && (github.event.pull_request.head.repo.full_name == github.repository) ) || (github.event_name != 'pull_request')
     runs-on: ubuntu-latest
     steps:
-      - name: "Handle common commands and run tests"
+      - name: "Run common commands and tests, including when triggered via chatops"
         uses: cloudposse/github-action-terraform-ci@main
         if: always()
         with:
