@@ -146,7 +146,9 @@ For automated tests of the complete example using [bats](https://github.com/bats
 <!-- markdownlint-disable -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=1.0.0 |
 
 ## Providers
 
