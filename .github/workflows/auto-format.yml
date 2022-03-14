@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: cloudposse/github-action-terraform-auto-format@main
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        #token: ${{ secrets.PUBLIC_REPO_ACCESS_TOKEN }}
 
   ping:
     runs-on: ubuntu-latest
