@@ -13,4 +13,4 @@ jobs:
     steps:
     - uses: cloudposse/github-action-auto-release@main
       with:
-        token: ${{ github.token }}
+        token: ${{ github.status }}
