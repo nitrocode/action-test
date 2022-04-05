@@ -1,21 +1,20 @@
 name: "auto-format"
 on:
-  pull_request:
-    types: [opened, reopened, synchronize]
+  pull_request_target:
+    types: [opened, synchronize]
   workflow_dispatch:
 
 jobs:
-  format:
-    #if: (github.event.pull_request.head.repo.full_name == github.repository) && (github.event.pull_request.state == 'open')
+  auto-format:
+    if: (github.event.pull_request.head.repo.full_name == github.repository) && (github.event.pull_request.state == 'open') || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
     - uses: cloudposse/github-action-auto-format@main
       with:
-        token: ${{ secrets.PUBLIC_REPO_ACCESS_TOKEN }}
-
-  ping:
-    runs-on: ubuntu-latest
-    steps:
-    - name: test
-      shell: bash
-      run: echo "pong"
+        script-name: readme
+    - uses: cloudposse/github-action-auto-format@main
+      with:
+        script-name: github_format
+    - uses: cloudposse/github-action-auto-format@main
+      with:
+        script-name: terraform_format
