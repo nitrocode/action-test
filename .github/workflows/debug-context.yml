@@ -1,3 +1,4 @@
+name: Debugging info
 on:
   schedule:
   # Example of job definition:
@@ -9,12 +10,12 @@ on:
   # |  |  |  |  |
   # *  *  *  *  * user-name command to be executed
   # Update README.md nightly at 4am UTC
-  - cron: '* * * * *'
+  - cron: '0/5 * * * *'
 
 jobs:
   print-event:
     runs-on: ubuntu-latest
-    steps: 
+    steps:
     - name: Print the context
       shell: bash
       env:

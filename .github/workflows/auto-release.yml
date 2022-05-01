@@ -1,10 +1,10 @@
 name: "auto-release"
 on:
-  push:
-    branches:
-      - main
-      - master
-      - production
+  #  push:
+  #    branches:
+  #      - main
+  #      - master
+  #      - production
   workflow_dispatch:
 
 jobs:
