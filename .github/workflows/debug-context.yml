@@ -1,6 +1,8 @@
 name: Debugging info
 on:
-  schedule:
+  workflow_dispatch:
+
+  #schedule:
   # Example of job definition:
   # .---------------- minute (0 - 59)
   # |  .------------- hour (0 - 23)
@@ -10,7 +12,8 @@ on:
   # |  |  |  |  |
   # *  *  *  *  * user-name command to be executed
   # Update README.md nightly at 4am UTC
-  - cron: '0/5 * * * *'
+  # Most frequent schedule GitHub allows is once every 5 minutes
+  # - cron: '0/5 * * * *'
 
 jobs:
   print-event:
@@ -24,3 +27,38 @@ jobs:
         printf "JSON representation of `github` available is:\n\n%s\n" "${JSON}"
 
 
+# Example output from a schedule event:
+#  {
+#    "token": "***",
+#    "job": "print-event",
+#    "ref": "refs/heads/main",
+#    "sha": "25776ab14e104e194421ad8b5177985a51e1c988",
+#    "repository": "cloudposse/action-test",
+#    "repository_owner": "cloudposse",
+#    "repository_owner_id": "16398900",
+#    "repositoryUrl": "git://github.com/cloudposse/action-test.git",
+#    "run_id": "2254922564",
+#    "run_number": "1",
+#    "retention_days": "270",
+#    "run_attempt": "1",
+#    "artifact_cache_size_limit": "10",
+#    "repository_id": "314111549",
+#    "actor_id": "2793313",
+#    "actor": "Nuru",
+#    "workflow": ".github/workflows/debug-context.yml",
+#    "head_ref": "",
+#    "base_ref": "",
+#    "event_name": "schedule",
+#    "event": {
+#      "schedule": "* * * * *"
+#    },
+#    "server_url": "https://github.com",
+#    "api_url": "https://api.github.com",
+#    "graphql_url": "https://api.github.com/graphql",
+#    "ref_name": "main",
+#    "ref_protected": true,
+#    "ref_type": "branch",
+#    "secret_source": "Actions",
+#    "workspace": "/home/runner/work/action-test/action-test",
+#    "action": "__run"
+#  }
