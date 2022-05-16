@@ -1,4 +1,5 @@
 # These settings are synced to GitHub by https://probot.github.io/apps/settings/
+# no-op
 
 repository:
   # See https://docs.github.com/en/rest/reference/repos#update-a-repository for all available settings.
