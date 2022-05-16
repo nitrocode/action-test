@@ -61,57 +61,46 @@ repository:
 labels:
 - name: bug
   color: "d73a4a"
-  aliases: []
   description: Something isn't working
 
 - name: bugfix
   color: "fbca04"
-  aliases: []
   description: Change that restores intended behavior
 
 - name: do not merge
   color: "B60205"
-  aliases: []
   description: Do not merge this PR, doing so would cause problems
 
 - name: enhancement
   color: "a2eeef"
-  aliases: []
   description: New feature or request
 
 - name: invalid
   color: "e4e669"
-  aliases: []
   description: This doesn't seem right
 
 - name: major
   color: "00FF00"
-  aliases: []
   description: Breaking changes (or first stable release)
 
 - name: minor
   color: "00cc33"
-  aliases: []
   description: New features that do not break anything
 
 - name: no-release
   color: "0075ca"
-  aliases: []
   description: Do not create a new release (wait for additional code changes)
 
 - name: patch
   color: "0E8A16"
-  aliases: []
   description: A minor, backward compatible change
 
 - name: wip
   color: "B60205"
-  aliases: []
-  description: Work in Progress: Not ready for final review or merge
+  description: "Work in Progress: Not ready for final review or merge"
 
 - name: wontfix
   color: "B60205"
-  aliases: []
   description: This will not be worked on
 
 # Milestones: define milestones for Issues and Pull Requests
